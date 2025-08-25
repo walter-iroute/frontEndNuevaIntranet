@@ -1,0 +1,16 @@
+.padding-x-contenido {
+    padding-left: 152px;
+    padding-right: 152px;
+}
+.padding-y-contenido {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.titulo-interno {
+    font-family: var(--font-source-sans-pro);
+    font-size: 28px;
+    color: #2f5132;
+    font-weight: 600;
+    margin: 0 !important;
+}

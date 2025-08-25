@@ -1,0 +1,119 @@
+.container-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-requisitos {
+    width: 100%;
+    max-width: 1040px;
+    min-height: 279.29px;
+    margin-top: 35px;
+    padding: 0 30px;
+}
+
+.tab-accordeon {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-dorado-quemado);
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+}
+
+h2 {
+    font-family: var(--font-duplet);
+}
+
+.container-tabs {
+    font-size: 22px;
+    color: #474747 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly !important;
+    /* gap: 5px; */
+    width: 100%;
+}
+
+.tab-button {
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 22px !important;
+    /* font-style: Bold; */
+
+    line-height: 100%;
+    letter-spacing: 0%;
+
+    transition: all 0.2s ease-in-out;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gris-oscuro);
+}
+
+.tab-button.active {
+    border-bottom: 2px solid var(--color-dorado-quemado);
+    color: #474747 !important;
+}
+
+.container-tabs .active-tab {
+    border-bottom: 2px solid var(--color-dorado-quemado);
+    color: #474747 !important;
+    font-weight: 600;
+}
+
+.content-list {
+    margin-top: 20px;
+}
+
+.content-list ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.content-list li {
+    position: relative;
+    list-style: none;
+    font-weight: 600;
+    color: var(--color-gris-oscuro);
+}
+
+.content-list li::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background-image: url('/images/default-source/default-album/circle-line.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.content-list p {
+    margin: 0 0 1em 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Restringe imágenes y otras etiquetas */
+.content-list img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+@media (min-width: 1024px) {
+    .container-requisitos {
+        max-width: 816px;
+    }
+}

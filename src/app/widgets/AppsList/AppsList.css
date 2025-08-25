@@ -1,0 +1,46 @@
+.appListContainer {
+    width: 470px;
+    height: auto;
+}
+.ver-mas-apps {
+    background-color: white;
+    height: 175px;
+    width: 217px;
+    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.ver-mas-btn {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.text-cards{
+    text-decoration: none;
+}
+
+
+.document-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 101px;
+    width: 76px;
+    text-decoration: none;
+}
+
+
+.text-cards1 {
+    text-overflow: ellipsis;
+    width: 76px;
+    white-space: nowrap; /* No permite que el texto se divida en varias líneas */
+    overflow: hidden;
+    text-align: center;
+}

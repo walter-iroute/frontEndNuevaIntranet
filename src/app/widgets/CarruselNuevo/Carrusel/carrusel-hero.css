@@ -1,0 +1,47 @@
+.wrapper-section col {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.swiper-pagination-bullet {
+    background: #CB801B !important;
+    opacity: 40%;
+    z-index: 10;
+}
+
+.swiper-pagination-bullet-active{
+    background: #CB801B !important;
+    opacity: 100%;
+    z-index: 10;
+}
+
+.mySwiper {
+    z-index: 0 !important;
+}
+
+
+@media (width >= 48rem) {
+    .swiper-pagination{
+        text-align: start;
+        padding: 10px 120px;
+    }
+
+    .swiper-pagination-bullet-active{
+        transform: scale(1.2);
+    }
+}
+
+@media (width >= 64rem) {
+
+}
+
+@media (width >= 80rem) {
+
+}
+
+@media (width >= 96rem) {
+    .swiper-pagination{
+        text-align: start;
+        padding: 50px 195px;
+    }
+}

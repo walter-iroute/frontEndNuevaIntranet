@@ -1,0 +1,132 @@
+.carrousel-areas {
+    padding: 10px 0;
+    padding-left: 2px;
+    margin: 0 auto;
+}
+
+.container-cards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    gap: 3rem;
+    padding: 8px;
+}
+
+.contenedor-card {
+    width: 100%;
+    max-width: 370px;
+    min-height: 334px;
+    border-radius: 20px;
+    border: 1px solid var(--color-verde-niebla);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contenedor-card h3 a {
+    text-decoration: none;
+    color: var(--color-verde-oscuro);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden; /* Esta propiedad es esencial */
+}
+
+.contenedor-card h3 {
+    width: 291px;
+    min-height: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    font-family: var(--font-duplet);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-card .separator {
+    width: 292px;
+    border: 0.5px solid var(--color-verde-oscuro);
+}
+
+.contenedor-card .content-card {
+    width: 315px;
+    min-height: calc(1.4em * 5); /* Altura aproximada para 5 líneas */
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--color-gris-oscuro);
+    line-height: 1.4;
+}
+
+
+.carrousel-card {
+  max-width: 302px;
+  min-height: 243px;
+  border-radius: 8px;
+  border: 1px solid var(--color-verde-niebla);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.carrousel-card h3 {
+  color: var(--color-verde-oscuro);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden; /* Esta propiedad es esencial */
+}
+
+.carrousel-card h3 {
+  width: 254px;
+  height: 44px;
+  font-weight: bold;
+  text-align: center;
+  font-family: var(--font-source-sans-pro);
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrousel-card .separator {
+  width: 292px;
+  border: .5px solid var(--color-verde-oscuro);
+  
+}
+
+.carrousel-card .content-card {
+  width: 254px;
+  font-size: 16px;
+  min-height: calc(1.4em * 3); /* Altura aproximada para 5 líneas */
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-gris-oscuro);
+  line-height: 1.4;
+}
+
+.carrousel-card .url-redirect {
+  text-decoration:  none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-verde-oscuro)
+}

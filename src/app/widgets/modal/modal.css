@@ -1,0 +1,37 @@
+.custom-modal-dialog {
+    max-width: 667.8px !important; /* o el valor que desees */
+    margin: auto;
+    top: 50px;
+}
+
+.custom-modal-content {
+    min-width: 667.66px !important;
+    height: 660.99px !important;
+    border-radius: 16px;
+}
+.custom-modal-btn-call-to-action {
+    width: 162.45px;
+    height: 39.99px;
+    border-radius: 6.66px;
+    opacity: 1;
+    padding: 10px 13.33px 10px 13.33px;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 13.33px;
+
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.custom-modal-content_text {
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+}

@@ -1,0 +1,146 @@
+/* Universal box-sizing, good to keep at the top */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure no default body margins/padding interfere */
+body {
+  margin: 0;
+  padding: 0;
+  /* Add your default font if not already applied globally */
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* 1. Main Banner Container */
+.banner-layout {
+  display: flex; /* Make it a flex container, as in your HTML */
+  width: 100%; /* Ensure it spans the full viewport width */
+  min-height: 431px; /* Set the minimum height as per Figma */
+  padding-bottom: 80px;
+
+}
+
+/* Remove this selector as you are not using a .row div directly inside .banner-layout */
+/* .banner-layout > .row {
+  display: flex;
+  align-items: stretch;
+} */
+
+
+/* 2. Image Figure (Left Half) */
+.banner-figure {
+  flex: 1 1 50%; /* Make it take up 50% of the available space (flex-basis: 0, flex-grow: 1, flex-shrink: 1) */
+  /* Remove fixed max-width and height as we want it to be responsive and fill its parent */
+  width: auto; /* Let flex handle width */
+  height: auto; /* Let flex handle height, or use 100% relative to parent */
+  max-width: 687px; 
+  max-height: none; 
+  min-height: 431px; 
+  border: none;
+  outline: none;
+  overflow: hidden; 
+  margin: 0; 
+}
+
+/* 3. Image Styles */
+.banner-image {
+  width: 100%; /* Image fills its parent's width */
+  height: 100%; /* Image fills its parent's height */
+  object-fit: cover; /* Recommended: image covers the area, cropping if needed, preserving aspect ratio */
+  display: block; /* Remove any extra space below inline images */
+}
+
+/* 4. Content Div (Right Half) */
+.banner-content {
+  flex: 1 1 50%; /* Make it take up the other 50% of the available space */
+  /* Remove fixed max-width and height as we want it to be responsive and fill its parent */
+  width: auto; /* Let flex handle width */
+  height: auto; /* Let flex handle height, or use 100% relative to parent */
+  max-width: 753px;  
+  min-height: 431px; /* Ensure it has at least the banner height if image is short */
+  display: flex; /* Already set, good! */
+  flex-direction: column; /* Stack children (title, description) vertically */
+  justify-content: center; /* Vertically center the content within this div */
+  align-items: flex-start; /* Align text to the start (left) */
+  padding: 0 88px; /* Your desired internal padding for the text content */
+}
+
+/* 5. Text Container within Content Div */
+.banner-content-text {
+    /* No specific flex properties needed here unless you want to constrain text width */
+    /* If the text should have a max-width within the padding, you could add it here */
+    max-width: 600px; /* Example: To prevent text from being too wide on very large screens */
+    margin: 0; /* Ensure no default margins */
+    
+}
+
+
+/* 6. Title Styles */
+.banner-content-title {
+  font-size: 52px;
+  line-height: 1.1; /* Use unitless line-height for better scaling */
+  font-family: 'Duplet', sans-serif;
+  font-weight: 600;
+  color: #295135;
+  margin-top: 0; /* Remove default h1 top margin */
+  margin-bottom: 20px; /* Add space below title */
+}
+
+/* 7. Description Styles */
+.banner-content-description {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.3; /* Use unitless line-height */
+  color: #295135;
+  margin-top: 0; /* Remove default p top margin */
+  margin-bottom: 0; /* Remove default p bottom margin */
+}
+
+/* 8. Responsiveness (Crucial for mobile experience) */
+@media (max-width: 992px) { /* Adjust breakpoint as needed (e.g., Bootstrap's lg breakpoint) */
+  .banner-layout {
+    flex-direction: column; /* Stack image and content vertically */
+    min-height: auto; /* Allow height to adjust based on stacked content */
+  }
+
+  .banner-figure,
+  .banner-content {
+    flex: none; /* Reset flex properties */
+    width: 100%; /* Take full width when stacked */
+    height: auto; /* Allow height to adjust to content */
+    min-height: auto; /* Reset min-height for mobile */
+  }
+
+  .banner-figure {
+    /* You might want to give the image a reasonable height on mobile */
+    min-height: 250px; /* Example mobile image height */
+  }
+
+  .banner-content {
+    padding: 30px 20px; /* Adjust padding for mobile view */
+    text-align: center; /* Center text on mobile */
+    align-items: center; /* Center text content horizontally in flexbox */
+  }
+
+  .banner-content-title {
+    font-size: 38px; /* Adjust font size for mobile */
+  }
+
+  .banner-content-description {
+    font-size: 20px; /* Adjust font size for mobile */
+  }
+}
+
+/* Optional: Even smaller mobile adjustments */
+@media (max-width: 576px) {
+    .banner-content {
+        padding: 20px 15px; /* Smaller padding for very small screens */
+    }
+    .banner-content-title {
+        font-size: 32px;
+    }
+    .banner-content-description {
+        font-size: 18px;
+    }
+}

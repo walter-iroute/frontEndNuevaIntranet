@@ -1,0 +1,92 @@
+.container_imagenes{
+    max-width: 992px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 413px;
+    opacity: 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+
+.container_imagenes_items{
+    width:223.78px ;
+    height:158.41px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container_general_items_imagenes {
+    width: 100%;
+}
+
+.container_imagenes_items {
+    width: 223.77px;
+    height: 158.41px;
+
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.container_imagenes_items_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene proporciones sin distorsionar */
+    opacity: 1;
+}
+
+.title_contenedor_imagenes{
+    font-family: var(--font-duplet);
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--color-verde-oscuro);
+    
+}
+
+.contenedor_general_plantilla_generica{
+    max-width: 992px;
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.titulo_buzon_Etica_plantilla_generica{
+    font-family: var(--font-duplet);
+    font-weight: 600;
+    font-style: Semibold;
+    font-size: 38px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--color-verde-oscuro);
+
+}
+
+.text_buzon_Etica_plantilla_generica{
+    font-family: var(--font-Source);
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+line-height: 150%;
+letter-spacing: 0%;
+    color: var(--color-gris-oscuro);
+
+
+}
+/*
+font-family: Source Sans Pro;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 150%;
+letter-spacing: 0%;
+
+
+*/

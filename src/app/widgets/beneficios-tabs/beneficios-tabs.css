@@ -1,0 +1,9 @@
+
+.nav-underline .nav-link {
+  color: #474747 !important; /* gris clarito */
+  border-bottom: none;
+}
+
+.nav-underline .nav-link.active {
+  border-bottom: 4px solid #CB801B !important; /* barrita naranja */
+}

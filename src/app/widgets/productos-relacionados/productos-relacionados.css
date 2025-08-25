@@ -1,0 +1,95 @@
+.prod-rel-container {
+  width: 100%;
+  max-width: 897px;
+  margin: 0 auto;
+}
+
+.prod-rel-card {
+  width: 100%;
+  max-width: 239px;
+
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 8px;
+}
+
+.prod-rel-text {
+  width: 100%;
+}
+
+.prod-rel-text p {
+  font-size: 20px;
+  font-family: var(--font-duplet);
+  line-height: 100%;
+}
+
+.prod-rel-img {
+  width: 53px;
+  height: 53px;
+}
+
+.prod-rel-img img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+.arrow3 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    width: 40px; /* Ancho de la flecha */
+    height: 40px; /* Alto de la flecha */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    border-radius: 50%; /* Hace que el botón sea circular */
+    display: flex; /* Para centrar el contenido (ej. un icono) */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10; /* Asegura que estén por encima de las diapositivas */
+    border: none; /* Elimina el borde por defecto del botón */
+    outline: none; /* Elimina el outline al hacer clic/foco */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+ 
+
+
+.arrow3--prev2 {
+    left: -50px; /* Posiciona a la izquierda */
+    /* Puedes añadir una imagen de fondo para la flecha o un icono */
+    background-image: url('/assets/arrow-back-large.png'); /* Ruta a tu imagen de flecha izquierda */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px; /* Tamaño del icono dentro del botón */
+    background-color: white;
+}
+ 
+.arrow3--prev2{
+  opacity: .5;
+}
+ 
+.arrow3--next2,
+.arrow3--prev2 {
+  border-radius: 50px;
+  border: 1px solid #474747; /* Borde opcional */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Estilo para la flecha de "siguiente" */
+.arrow3--next2 {
+    right: -50px; /* Posiciona a la derecha */
+    /* Puedes añadir una imagen de fondo para la flecha o un icono */
+    background-image: url('/assets/arrow-next-large.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px; /* Tamaño del icono dentro del botón */
+    background-color: white; 
+}
+
+.arrow3:hover{
+
+opacity: 1;
+}

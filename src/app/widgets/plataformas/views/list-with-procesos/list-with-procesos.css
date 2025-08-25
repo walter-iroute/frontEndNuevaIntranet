@@ -1,0 +1,35 @@
+.procesos {
+    font: var(--font-source-sans-pro);
+    background-color: var(--color-blanco-humo-claro);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 18rem;
+}
+
+.img-procesos {
+    width: 4rem;
+    height: 4rem;
+    object-fit: fill;
+}
+
+.text-procesos {
+    color: var(--color-gris-oscuro);
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.content-procesos {
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--color-gris-oscuro);
+}
+
+.link {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-verde-oscuro);
+}

@@ -1,0 +1,150 @@
+/* ------------------------- */
+/* 1284 x 451 */
+.carrousel {
+    width: 100%;
+    margin: 0 auto;
+}
+ 
+.swiper {
+    /* width: 100%; */
+    height: 100%;
+}
+ 
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    height: 200px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+ 
+.content_banner {
+    padding: 0;
+}
+ 
+.classic-swiper .swiper-pagination-bullet {
+    background: #295135 !important;
+    opacity: 40%;
+    z-index: 10;
+}
+ 
+.classic-swiper .swiper-pagination {
+    text-align: center !important;
+}
+ 
+.classic-swiper .swiper-pagination-bullet-active {
+    background: #295135 !important;
+    opacity: 100%;
+    z-index: 10;
+    transform: scale(2);
+}
+ 
+@media only screen and (min-width: 1200px) {
+    .swiper-slide {
+        height: auto !important;
+    }
+}
+ 
+.classic-swiper .img-swiper {
+    width: 302px;
+    height: 225px;
+    object-fit: fill;
+}
+ 
+.classic-swiper .tarjeta {
+    width: 302px !important;
+    height: 320px !important;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+ 
+.card-container-noticias:hover {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+ 
+ 
+/* Asegura que el contenedor principal del carrusel tenga posicionamiento relativo */
+.carrousel {
+    position: relative;
+    /* Otros estilos para tu carrusel */
+}
+ 
+/* Estilos comunes para ambas flechas */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    width: 40px; /* Ancho de la flecha */
+    height: 40px; /* Alto de la flecha */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    border-radius: 50%; /* Hace que el botón sea circular */
+    display: flex; /* Para centrar el contenido (ej. un icono) */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10; /* Asegura que estén por encima de las diapositivas */
+    border: none; /* Elimina el borde por defecto del botón */
+    outline: none; /* Elimina el outline al hacer clic/foco */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+ 
+/* Efecto hover */
+.arrow:hover {
+    background-color: var(--color-Asparagus);
+   
+}
+ 
+/* Estilo para la flecha de "anterior" */
+.arrow--prev {
+    left: -50px; /* Posiciona a la izquierda */
+    /* Puedes añadir una imagen de fondo para la flecha o un icono */
+    background-image: url('/assets/arrow-left.svg'); /* Ruta a tu imagen de flecha izquierda */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px; /* Tamaño del icono dentro del botón */
+    background-color: white;
+}
+ 
+ 
+ 
+ 
+/* Estilo para la flecha de "siguiente" */
+.arrow--next {
+    right: -50px; /* Posiciona a la derecha */
+    /* Puedes añadir una imagen de fondo para la flecha o un icono */
+    background-image: url('/assets/arrow-right.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px; /* Tamaño del icono dentro del botón */
+    background-color: white;
+   
+   
+}
+ 
+ 
+ 
+/* Si estás usando texto o un carácter unicode como flecha dentro del botón */
+.arrow--prev::before {
+    content: '\2039'; /* Carácter de flecha izquierda */
+    font-size: 30px;
+    color: var(--color-verde-oscuro);
+}
+ 
+.arrow--prev:hover::before {
+    color: white;
+}
+ 
+.arrow--next::before {
+    content: '\203A'; /* Carácter de flecha derecha */
+    font-size: 30px;
+    color: var(--color-verde-oscuro);
+}
+ 
+.arrow--next:hover::before {
+    color: white; /* Color de la flecha al pasar el mouse */
+}
+ 

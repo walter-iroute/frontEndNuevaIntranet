@@ -1,0 +1,113 @@
+.contenedor_historial_noticia {
+    position: relative;
+    width: 274px;
+    height: 793.965px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+}
+
+.card_title_header {
+    font-family: Source Sans Pro;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #295135;
+    text-transform: uppercase;
+}
+
+.card_header_historial_noticia {
+    width: 270.5px;
+    height: 35.5px;
+}
+
+.linea {
+    width: 274px;
+    border-bottom-width: 1px;
+    border-bottom-color: #538f61;
+    border-bottom-style: dashed;
+}
+
+.container_buttom {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 274px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.buttom_new {
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    gap: 8px;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 190px;
+    height: 48px;
+    background-color: #295135;
+}
+
+.border_card {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: fit-content;
+    gap: 18px;
+}
+
+.border_card::before {
+    content: '';
+    height: -webkit-fill-available;
+    border-left: 2px dashed #295135;
+    padding-left: 15px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+}
+
+.border_card_point {
+    position: relative;
+    height: fit-content;
+    max-height: 160px;
+}
+
+.border_card_point::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    width: 10px;
+    height: 10px;
+    background-color: #538f61;
+    border-radius: 50%;
+}
+
+.card_detalle_noticia {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: stretch;
+    width: 250px;
+    height: auto;
+    max-height: 150px;
+    gap: 8px;
+    padding-left: 15px;
+}
+
+.card-title-noticas-detalle {
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 18px;
+}

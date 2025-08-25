@@ -1,0 +1,23 @@
+[
+    {
+        "id": 0,
+        "name": "Inicio",
+        "url": "sitefinity/inicio",
+        "parent": null,
+        "status": 1
+    },
+    {
+        "id": 1,
+        "name": "Banca Personas",
+        "url": "/banca-persona",
+        "parent": null,
+        "status": 1
+    },
+    {
+        "id": 2,
+        "name": "Banca Empresas",
+        "url": "sitefinity/banca-empresas",
+        "parent": null,
+        "status": 1
+    }
+]

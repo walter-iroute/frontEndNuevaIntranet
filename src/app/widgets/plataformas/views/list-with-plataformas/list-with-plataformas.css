@@ -1,0 +1,18 @@
+.content-plataformas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.text-plataformas {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #474747;
+}
+
+.img-plataformas {
+    object-fit: fill;
+    margin-right: 10px;
+}

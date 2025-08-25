@@ -1,0 +1,22 @@
+.content-mercadeo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #EDEDEE;
+    border-radius: 8px;
+}
+
+.text-mercadeo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #295135;
+}
+
+.img-mercadeo {
+    object-fit: fill;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 10px;
+}

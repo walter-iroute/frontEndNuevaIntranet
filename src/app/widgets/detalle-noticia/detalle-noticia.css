@@ -1,0 +1,80 @@
+.container_detalles{
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.title{
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 100%;
+    text-align:left;
+    vertical-align:middle;
+    color:#474747
+}
+
+.figure {
+    width: 100%;
+    height: 384px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0; 
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.2) brightness(1.05) saturate(1.2);
+}
+
+.badge{
+    padding-top: 3px;
+    padding-right: 8px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    width: 89px;
+    height: 20px;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: 1%;
+    font-weight: 700;
+font-family: Source Sans Pro;
+text-transform: uppercase;
+}
+
+.descripcion {
+    font-family: Source Sans Pro;
+
+    line-height: 100%;
+    text-align: justify;
+    vertical-align: middle;
+    color: #295135;
+    width: auto;
+    height: auto;
+}
+.descripcion p{
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 18px;
+}
+.descripcion li{
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+
+.date{
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    text-align: justify;
+    vertical-align: middle;
+    color: #538F61;
+}

@@ -1,0 +1,151 @@
+.contenedor_noticias {
+    width: fit-content;
+    min-height: 1024px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.noticias_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 302px);
+    gap: 20px;
+    width: fit-content;
+}
+
+.noticia_item {
+    display: flex;
+    justify-content: center;
+}
+
+.cards_noticias {
+    width: 100%;
+    max-width: 302px;
+    height: 331px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.cards_noticias:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cards_figure_noticias {
+    width: 100%;
+    height: 225px;
+    overflow: hidden;
+    margin: 0;
+    flex-shrink: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.cards_image_noticias {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cards_noticias_content {
+    gap: 12px;
+    padding: 16px;
+    background-color: #ffffff;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 0 0 8px 8px;
+}
+
+.badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 8px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 20px;
+    color: white;
+    width: fit-content;
+}
+
+.card-title-noticias {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    color: #474747;
+    font-weight: 600;
+    line-height: 117%;
+    letter-spacing: 1%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Pagination Styles */
+.pagination_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    gap: 8px;
+}
+
+.pagination_button {
+    color: #374151;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+}
+
+.pagination_button:hover:not(:disabled) {
+    color: #538f61;
+}
+
+.pagination_button:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.card_point {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.card_point:hover {
+    background-color: #b0b0b0;
+}
+
+.card_point--active {
+    background-color: #538f61;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

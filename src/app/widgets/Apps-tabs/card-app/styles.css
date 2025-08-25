@@ -1,0 +1,10 @@
+#dropdown-basic::after {
+    display: none !important;
+}
+
+.description-container {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* número de líneas máximo */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

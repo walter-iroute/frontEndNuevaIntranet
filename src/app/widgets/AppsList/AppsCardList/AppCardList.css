@@ -1,0 +1,62 @@
+.appCardListContainer {
+    display: flex;
+    height: 175px;
+    border: 1px solid #d1d3d4;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding-top: 24px; /* Espaciado arriba */
+    padding-right: 16px; /* Espaciado a la derecha */
+    padding-bottom: 24px; /* Espaciado abajo */
+    padding-left: 16px;
+    width: 217px;
+    flex-direction: column;
+    background-color: #ededee;
+}
+
+.header {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+}
+
+.leftSection {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.description {
+    font-size: 14px;
+    color: #555;
+}
+
+.descriptionTitle {
+    font-size: 14px;
+    color: #555;
+}
+
+.buttonAppList {
+    width: 100%;
+    height: 40px;
+    padding: 0px 16px;
+    background-color: transparent;
+    border-color: #295135;
+    border-width: 1px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dropdown-basic::after {
+    display: none !important;
+}

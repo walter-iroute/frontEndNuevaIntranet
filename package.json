@@ -1,0 +1,47 @@
+{
+  "name": "sitefinity-react-renderer",
+  "version": "0.1.0",
+  "license": "EULA.md",
+  "private": true,
+  "dependencies": {
+    "@next/third-parties": "^15.3.5",
+    "@progress/sitefinity-nextjs-sdk": "15.3.8522",
+    "@progress/sitefinity-widget-designers-sdk": "0.3.0",
+    "@tailwindcss/postcss": "^4.1.10",
+    "bootstrap": "^5.3.3",
+    "html-react-parser": "^5.2.6",
+    "i18next": "24.2.1",
+    "lucide-react": "^0.525.0",
+    "moment": "^2.30.1",
+    "next": "15.2.4",
+    "postcss": "^8.5.5",
+    "react": "19.0.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "19.0.0",
+    "react-i18next": "15.4.0",
+    "react-icons": "^5.5.0",
+    "swiper": "^11.2.2",
+    "tailwindcss": "^4.1.10"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/node": "20.14.8",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "@typescript-eslint/eslint-plugin": "6.12.0",
+    "@typescript-eslint/parser": "6.12.0",
+    "eslint": "8.54.0",
+    "eslint-config-next": "14.2.4",
+    "eslint-config-prettier": "9.1.0",
+    "prettier": "3.3.2",
+    "ts-node": "10.9.2",
+    "typescript": "5.7.3"
+  },
+  "scripts": {
+    "prod": "next start",
+    "dev": "next dev --experimental-https -p 5001",
+    "build": "next build",
+    "lint": "eslint . --quiet",
+    "lint:fix": "eslint . --fix"
+  }
+}

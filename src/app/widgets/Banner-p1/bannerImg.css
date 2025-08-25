@@ -1,0 +1,21 @@
+.banner-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: #e1ede4;
+}
+
+.block-text {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 2rem;
+    width: 459px;
+}
+
+.block-image {
+    margin-right: 2rem;
+    display: flex;
+    justify-content: right;
+    align-items: end;
+}
+

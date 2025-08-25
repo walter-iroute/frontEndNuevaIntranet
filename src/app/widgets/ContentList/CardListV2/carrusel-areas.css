@@ -1,0 +1,137 @@
+/* Estilo de la tarjeta vacía */
+.empty-card {
+    width: 302px;
+    height: 250px;
+    background-color: #F9F9F9; /* Color de fondo para que se vea la tarjeta vacía */
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0 !important;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-card h3 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 254px;
+    height: 44px;
+    font-weight: bold;
+    text-align: center;
+    font-family: var(--font-source-sans-pro);
+    font-size: 18px;
+    display: flex;
+    color: var(--color-gris-oscuro);
+
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-card img {
+    margin: 0.25rem;
+    height: 40px;
+    width: auto; /* Esto mantiene la proporción de la imagen */
+    object-fit: contain; /* Ajusta la imagen sin deformarla */
+}
+
+.contenido-card {
+    width: 254px;
+    font-size: 16px;
+    min-height: calc(1.4em * 3); /* Altura aproximada para 5 líneas */
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-gris-oscuro);
+    line-height: 1.4;
+}
+
+
+.swiper-slide{
+    background-color: transparent !important; /* Asegura que el fondo de las diapositivas sea transparente */
+}
+
+.url-redirecion {
+    width: 254px;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-verde-oscuro);
+    white-space: nowrap; /* No permite que el texto se divida en varias líneas */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* Contenedor principal del carrusel */
+.swiper-wrapper-custom {
+    position: relative; /* Necesario para posicionar las flechas */
+    padding: 0;
+    margin: 0;
+    width: 955px !important; /* Ancho fijo del carrusel */
+}
+
+/* Estilo de las flechas personalizadas */
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10; /* Asegúrate de que las flechas estén por encima del contenido */
+}
+
+.custom-arrow-prev {
+    left: 10px; /* Ajusta la posición de la flecha izquierda */
+}
+
+.custom-arrow-next {
+    right: 10px; /* Ajusta la posición de la flecha derecha */
+}
+
+/* .swiper-slide {
+    width: 312px !important;
+} */
+
+/* Contenedor de las tarjetas dentro del carrusel */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Estilos generales para el carrusel */
+.swiper-wrapper-custom {
+    position: relative;
+    width: 100%;
+}
+
+/* Estilo de las flechas personalizadas */
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.custom-arrow-prev {
+    left: 10px;
+}
+
+.custom-arrow-next {
+    right: 10px;
+}
+
+/* Contenedor de las cards cuando no hay carrusel */
+.cards-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}

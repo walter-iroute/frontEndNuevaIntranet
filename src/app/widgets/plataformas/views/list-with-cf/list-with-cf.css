@@ -1,0 +1,26 @@
+.content-cf {
+    width: 302px;
+    height: 250px;
+    border: none;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.img-cf {
+    object-fit: fill;
+    width: 12rem;
+    height: 4rem;
+    margin-right: 10px;
+}
+
+.hr-cf {
+    color: #538F61;
+    margin-top: 10px 0;
+    margin-bottom: 10px;
+}
+
+.text-cf{
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    color: #474747 !important;
+}

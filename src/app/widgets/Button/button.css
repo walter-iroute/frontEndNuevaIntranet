@@ -1,0 +1,41 @@
+body {
+    overflow-x: hidden;
+}
+
+.directorio_contenedor_right {
+    position: fixed;
+    bottom: 25%;
+    transform: rotate(270deg) translateX(65px) translateY(60px);
+    transform-origin: center;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    z-index: 9999; /* Asegúrate de usar un valor alto para que esté encima de todo */
+}
+
+.btn-width {
+    width: 150px;
+    height: 50px;
+}
+
+.text_buttom_directorio_sticky {
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-style: Semibold;
+    font-size: 16px;
+    color: aliceblue;
+    line-height: 130%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+/*
+width: 95;
+height: 190;
+angle: 0 deg;
+opacity: 1;
+
+left: 1369px;
+
+*/

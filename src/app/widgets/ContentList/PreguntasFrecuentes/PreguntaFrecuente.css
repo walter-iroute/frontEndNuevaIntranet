@@ -1,0 +1,17 @@
+.preguntas_frecuentes_questions{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    color: #474747;
+}
+
+.preguntas_frecuentes_questions:hover{
+    color: #538F61;
+}
+
+/* Desktop Grande - 96rem (1536px) y más */
+@media (width >= 96rem) {
+    .preguntas_frecuentes_questions{
+        font-size: 24px;
+    }
+}

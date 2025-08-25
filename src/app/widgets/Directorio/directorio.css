@@ -1,0 +1,160 @@
+* {
+    font-family: var(--font-card-title);
+}
+
+/* Contenedor */
+.contenedor_tablas_directorio {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+/* .container_center_Table{
+    width: 100%;
+    max-width:1333px;
+    margin:auto;
+} */
+
+.container-busqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* margin: 0 auto;
+    max-width:1171.5px ; */
+    height: 107px;
+    box-shadow: -8px 12px 60px 0px #0000001a;
+}
+
+.container_filter {
+    flex-direction: column;
+    display: flex;
+    gap: 15px;
+    width: 303px;
+    height: 75px;
+}
+
+/* Estilo de tipografia */
+
+.label_title {
+    height: 12px;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #538f61;
+    text-transform: capitalize;
+}
+
+
+
+
+
+.filter_size {
+      background-image: url('/assets/arrow-dowm.svg'); /* Elimina flecha de Bootstrap */
+
+
+    height: 48px !important;
+    border: 1.5px solid #538f61;
+    color: #538f61;
+    border-radius: 8px;
+}
+
+.filter_button {
+    width: 148px;
+    height: 48px;
+    padding: 8px;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    background-color: #e5f0e8;
+    color: #94989a;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.filter_button:hover {
+    background-color: #295135;
+    color: #ffffff;
+}
+
+.filter_size:focus {
+    border: 1.5px solid #295135;
+    box-shadow: none;
+}
+
+.table_container {
+    width: 100%;
+    max-width: 1171px;
+    border-collapse: collapse;
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table_header {
+    background-color: #538f61;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px 16px;
+}
+
+.table_header th {
+    padding: 16px;
+    text-transform: uppercase;
+    font-family: Source Sans Pro;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+}
+
+.table_tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table_tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.card_point--active {
+    background-color: #538f61;
+}
+/* Icono de búsqueda alineado a la izquierda */
+.input-wrapper {
+    width: 303px;
+}
+
+.filter_input {
+    /*background-image: url('../../../../public/assets/buscador.png'); /* reemplaza con la ruta real */
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+    background-size: 16px 16px;
+    padding-right: 36px; /* espacio para el ícono */
+    border: 1.5px solid #538f61;
+    width: 303px;
+    height: 48px !important;
+    border-radius: 8px;
+    padding-left: 35px;
+    outline: none;
+    font-family: Source Sans Pro;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    color: #94989a;
+}
+/*
+
+
+*/

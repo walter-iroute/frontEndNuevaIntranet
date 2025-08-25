@@ -1,0 +1,26 @@
+.content-recursos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 20px;
+    border: 1px solid #EDEDEE;
+    border-radius: 8px;
+    width: 14rem;
+    height: 12rem;
+}
+
+.text-recursos {
+    font-size: 1.25rem;
+    font-weight: 400;
+    padding: 0px;
+    color: #295135;
+    text-align: center;
+}
+
+.img-recursos {
+    object-fit: fill;
+    width: 4.3rem;
+    height: 5.6rem;
+}

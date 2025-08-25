@@ -1,0 +1,46 @@
+.document-widget {
+    font-family: Arial, sans-serif;
+}
+
+.document-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.document-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 101px;
+    width: 76px;
+    text-decoration: none;
+}
+
+.document-title {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.text-cards1 {
+    width: 76px;
+    white-space: nowrap; /* No permite que el texto se divida en varias líneas */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.document-extension {
+    font-size: 1.5em;
+}
+
+.view-more-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.view-more-link:hover {
+    text-decoration: underline;
+}
