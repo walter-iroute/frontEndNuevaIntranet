@@ -48,6 +48,18 @@
     text-transform: capitalize;
 }
 
+.color-text-Directorio{
+    /* font-family: Source Sans Pro; */
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+
+
+}
 
 
 
@@ -73,10 +85,10 @@
     letter-spacing: 0%;
     text-align: center;
     background-color: #e5f0e8;
-    color: #94989a;
-    border: none;
+  color: var( --color-gris-fresco);
+      border: none;
     outline: none;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .filter_button:hover {
@@ -152,9 +164,19 @@
     line-height: 100%;
     letter-spacing: 0%;
     vertical-align: middle;
-    color: #94989a;
+    color: var( --color-gris-fresco);
 }
 /*
 
 
 */
+.filter_button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.filter_button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -34,9 +34,9 @@ export function CardNoticias(props: WidgetContext<CardNoticiasEntity>){
 >
   {/* Imagen */}
   <div className="col-md-6 d-flex p-0 "
-       style={{ maxWidth: "512px", maxHeight: "480px", height: "100%" }}>
+       style={{ maxWidth: "512px",marginTop:"20px", maxHeight: "414px", height: "100%" }}>
   
-    <picture className="w-100 h-100">
+    <picture className="w-100 h-100 ">
       {
         imagen ?
           <img
@@ -44,7 +44,7 @@ export function CardNoticias(props: WidgetContext<CardNoticiasEntity>){
         title={imagen?.Title}
         alt={imagen?.Title}
         loading="lazy"
-        className="rounded"
+        className="rounded mt-2"
         style={{
           objectFit: "cover",
           width: "100%",
@@ -53,12 +53,6 @@ export function CardNoticias(props: WidgetContext<CardNoticiasEntity>){
         }}
       />: 
       
-     /* <div className="bg-secondary"    style={{
-          objectFit: "cover",
-          width: "100%",
-          height: "100%",
-          borderRadius: "4px"
-        }}></div>*/
      <img
         src= "/assets/checker.png"
     
@@ -84,7 +78,7 @@ export function CardNoticias(props: WidgetContext<CardNoticiasEntity>){
 
 
   {/* Contenido */}
-  <div className="col-md-6 d-flex"
+  <div className="col-md-6 d-flex "
        style={{ maxWidth: "464px", maxHeight: "480px", height: "100%" }}>
     <section className="section_noticias_banner d-flex flex-column justify-content-between p-3 w-100">
       <header className="banner_cards" style={{ width: props.model.Properties.BannerWidth }}>

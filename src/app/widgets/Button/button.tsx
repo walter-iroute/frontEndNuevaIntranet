@@ -17,7 +17,10 @@ export function ButtonWidget(props: WidgetContext<ButtonWidgetEntity>) {
         '/administracion/beneficios',
         '/administracion/manuales',
         '/administracion/directorio',
+
     ];
+        const styleModifySpaceButton=[
+            '/inicio',]
 
         const checkRoute = () => {
             // Obtener el path actual
@@ -31,9 +34,22 @@ export function ButtonWidget(props: WidgetContext<ButtonWidgetEntity>) {
             }
         };
 
+        // Modificar estilo del botón en rutas específicas
+        const modifyButtonStyle = () => {   
+            // Obtener el path actual
+            const currentPath = window.location.pathname;
+            if (styleModifySpaceButton.includes(currentPath)) {
+                const buttonElement = document.querySelector('.directorio_contenedor_right') as HTMLElement;
+                if (buttonElement) {
+                  
+                    buttonElement.style.bottom = '60px'; // Cambia este valor según tus necesidades
+                }
+            }
+        }
+
         // Ejecutar al montar el componente
         checkRoute();
-
+        modifyButtonStyle();
         // Escuchar cambios de ruta
         window.addEventListener('popstate', checkRoute);
 
