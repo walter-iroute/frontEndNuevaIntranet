@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { WidgetContext, htmlAttributes } from '@progress/sitefinity-nextjs-sdk';
 import { BannerImgEntitycontenidov2 } from './bannerImg.entity';
 import './bannerImg.css';
+import {  sanitizerHTMLSaltosLineas } from '../../utils/Sanitizer';
 
 interface ImagenData {
     Title: string;
@@ -14,8 +15,9 @@ export function BannerImgcontenidov2(props: WidgetContext<BannerImgEntityconteni
     const imagenId = props.model.Properties.Imagen?.ItemIdsOrdered?.[0];
     const titulo = props.model.Properties.Titulo;
     const tituloDuplet = props.model.Properties.TituloDuplet;
-    const SubTitulo = props.model.Properties.Subtitulo;
+    const SubTitulo = props.model.Properties.Subtitulo as string;
     const SubTitulobold = props.model.Properties.Subtitulobold;
+
     const item1 = props.model.Properties.item1;
     const item2 = props.model.Properties.item2;
     const item3 = props.model.Properties.item3;
@@ -29,6 +31,7 @@ export function BannerImgcontenidov2(props: WidgetContext<BannerImgEntityconteni
     const link = props.model.Properties.link;
     const text = props.model.Properties.text_button;
     const subTituloItem = props.model.Properties.SubtituloItem;
+
 
     const [imagen, setImagen] = useState<ImagenData | null>(null);
 
@@ -49,12 +52,14 @@ export function BannerImgcontenidov2(props: WidgetContext<BannerImgEntityconteni
     }, [imagenId]);
 
     return (
-        <div {...dataAttributes} className='banner-containercontenidov2 row'>
+        <div {...dataAttributes} className='banner-containercontenidov2      row'>
             <div className='block-textcontenidov2'>
                 {titulo && <p className='titulo-bannercontenidov2'>{titulo}</p>}
 
                 {tituloDuplet && <p className='titulo-duplet-bannercontenidov2'>{tituloDuplet}</p>}
-                {SubTitulo && <p className='subtitulo-bannercontenidov2'>{SubTitulo}</p>}
+                {SubTitulo && <p className='subtitulo-bannercontenidov2'>{sanitizerHTMLSaltosLineas(SubTitulo)}</p>}
+
+
                 {SubTitulobold && <p className='subtitulo-bannercontenidov22'>{SubTitulobold}</p>}
 
                 {subTituloItem && <p className='subtitulo-item-bannercontenidov2'>{subTituloItem}</p>}
@@ -78,7 +83,7 @@ export function BannerImgcontenidov2(props: WidgetContext<BannerImgEntityconteni
                             >
                                 {' '}
                                 <img style={{ marginRight: '0.5rem' }} src='/assets/arrow-item.png'></img>
-                                {item2}
+                                {sanitizerHTMLSaltosLineas(item2)}
                             </p>
                         )}
                         {item3 && (
@@ -136,7 +141,7 @@ export function BannerImgcontenidov2(props: WidgetContext<BannerImgEntityconteni
                 )}
             </div>
             <div className='block-imagecontenidov2'>
-                {imagen && <img style={{ width: '353px', height:'323px', objectFit: 'contain' }} src={imagen.Url} alt={imagen.Title} />}
+                {imagen && <img  src={imagen.Url} alt={imagen.Title} />}
             </div>
         </div>
     );

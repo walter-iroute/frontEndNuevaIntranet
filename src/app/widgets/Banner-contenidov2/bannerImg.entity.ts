@@ -2,11 +2,13 @@
 import {
     WidgetEntity,
     Content,
-    KnownContentTypes,
+    
     MixedContentContext,
     Category,
     DisplayName,
     DefaultValue,
+    DataType,
+    KnownFieldTypes,
 } from '@progress/sitefinity-widget-designers-sdk';
 
 @WidgetEntity('Banner.Img', 'Banner Sostenible')
@@ -25,10 +27,12 @@ export class BannerImgEntitycontenidov2 {
     @DefaultValue('Titulo')
     Titulo: string | null = null;
     TituloDuplet: string | null = null;
-    Subtitulo: string | null = null;
+    @DataType(KnownFieldTypes.TextArea)
+      Subtitulo: string | null = null;
     Subtitulobold: string | null = null;
     SubtituloItem: string | null = null;
     item1: string | null = null;
+    @DataType(KnownFieldTypes.TextArea)
     item2: string | null = null;
     item3: string | null = null;
     item4: string | null = null;

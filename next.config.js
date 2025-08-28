@@ -4,7 +4,7 @@ const cspHeader = `
     script-src https://cdn.insight.sitefinity.com https://dec.azureedge.net https://player.vimeo.com/api/player.js https://www.youtube.com/iframe_api *.googleapis.com 'unsafe-eval' 'unsafe-inline' 'self';
     style-src https://cdn.insight.sitefinity.com https://dec.azureedge.net *.googleapis.com 'self' 'unsafe-inline';
     img-src https://cdn.insight.sitefinity.com https://dec.azureedge.net https://*.frontify.com https://*.cloudinary.com 'self' data: blob:;
-    connect-src http://localhost https://*.insight.sitefinity.com https://*.dec.sitefinity.com 'self';
+    connect-src https://localhost https://*.insight.sitefinity.com https://*.dec.sitefinity.com 'self';
     font-src fonts.gstatic.com 'self' data:;
     media-src 'self' blob:;
     default-src 'self'`;
@@ -15,7 +15,7 @@ module.exports = {
         config.plugins.push(
             new webpack.DefinePlugin({
                 'process.env.NEXT_PUBLIC_SF_CMS_URL': JSON.stringify(process.env.NEXT_PUBLIC_SF_CMS_URL),
-                'process.env.SF_CMS_URL': JSON.stringify(process.env.SF_CMS_URL || 'http://localhost:8081')
+                'process.env.SF_CMS_URL': JSON.stringify(process.env.SF_CMS_URL || 'https://localhost:8443')
             })
         );
         return config;

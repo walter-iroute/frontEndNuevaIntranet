@@ -20,7 +20,7 @@
     --sf-background-position: 0% 0%;
     --color-verde-niebla: #e5f0e8;
     --color-White-Smoke: #f8f8f8;
-
+    
     --font-card-title: 'Source Sans Pro', sans-serif;
     --color-hunter-green: #538f61;
     --color-hunter-gris: #b2b2b2;
@@ -39,6 +39,7 @@
 @import url('./app/Pages/nuestro-proposito.css');
 @import url('./app/Pages/admin-inicio.css');
 @import url('./app/Pages/admin-apps.css');
+@import url('./app/Pages/secretaria-general.css');
 
 
 
