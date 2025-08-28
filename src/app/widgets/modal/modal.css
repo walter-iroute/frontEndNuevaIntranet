@@ -17,7 +17,7 @@
 /* Contenedor principal del modal */
 .custom-modal-container {
     position: relative;
-    max-width: 540px;
+    max-width: 450px;
     width: 100%;
 
 }
@@ -47,14 +47,14 @@
 
 /* Contenido del modal */
 .custom-modal-content {
+    height: 450px;
     display: grid;
     grid-template-rows: 80% 20%;  /* Define las proporciones */
     grid-template-columns: 1fr;
-    height: 550px;
     background: white;
     border-radius: 16px;
     overflow: hidden;
-    padding: 16px;
+    padding: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
@@ -79,12 +79,11 @@
 
 /* Body del modal */
 .custom-modal-body {
-    padding: 16px;
+    padding-top: 16px;
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 16px;
     flex-direction: column;
 }
 
@@ -103,7 +102,7 @@
     transition: all 0.2s ease;
     border: none;
     cursor: pointer;
-    width: 162px;
+    width: 150px;
     height: 39px;
     box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
 }
