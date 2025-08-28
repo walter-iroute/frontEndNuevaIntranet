@@ -32,6 +32,7 @@ export class BannerImgEntitycontenidov2 {
     Subtitulobold: string | null = null;
     SubtituloItem: string | null = null;
     item1: string | null = null;
+    @DataType(KnownFieldTypes.TextArea)
     item2: string | null = null;
     item3: string | null = null;
     item4: string | null = null;

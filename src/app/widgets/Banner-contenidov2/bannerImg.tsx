@@ -83,7 +83,7 @@ export function BannerImgcontenidov2(props: WidgetContext<BannerImgEntityconteni
                             >
                                 {' '}
                                 <img style={{ marginRight: '0.5rem' }} src='/assets/arrow-item.png'></img>
-                                {item2}
+                                {sanitizerHTMLSaltosLineas(item2)}
                             </p>
                         )}
                         {item3 && (

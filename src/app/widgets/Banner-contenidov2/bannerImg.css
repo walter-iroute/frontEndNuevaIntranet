@@ -42,6 +42,7 @@
     line-height: 1.1;
     margin: 0 !important;
 }
+
 .titulo-duplet-bannercontenidov2 {
     font-family: var(--font-duplet);
     font-size: 37.13px;
@@ -50,6 +51,7 @@
     font-weight: 700;
     line-height: 1.1;
 }
+
 .subtitulo-item-bannercontenidov2 {
     font-family: var(--font-source-sans-pro);
     font-size: 18px;
@@ -57,8 +59,8 @@
     font-weight: 400;
     margin: 0;
     width: 100%;
-    
 }
+
 .subtitulo-bannercontenidov2 {
     font-family: var(--font-source-sans-pro);
     font-size: 18px;
@@ -67,6 +69,7 @@
     margin: 0;
     width: 100%;
 }
+
 .item-bannercontenidov2 {
     font-family: var(--font-source-sans-pro);
     color: #474747;
@@ -74,8 +77,13 @@
     font-weight: 400;
     margin: 0;
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* Removidas las propiedades que cortaban el texto */
+    /* white-space: nowrap; */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    
+    /* Agregadas propiedades para manejo de texto multilínea */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4; /* Mejora la legibilidad en múltiples líneas */
 }
-
