@@ -15,6 +15,7 @@ module.exports = {
         config.plugins.push(
             new webpack.DefinePlugin({
                 'process.env.NEXT_PUBLIC_SF_CMS_URL': JSON.stringify(process.env.NEXT_PUBLIC_SF_CMS_URL),
+                'process.env.SF_CMS_URL': JSON.stringify(process.env.SF_CMS_URL || 'http://localhost:8081')
             })
         );
         return config;

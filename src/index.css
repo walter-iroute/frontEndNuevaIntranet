@@ -40,7 +40,7 @@
 @import url('./app/Pages/admin-inicio.css');
 @import url('./app/Pages/admin-apps.css');
 
-
+@import url('./app/Pages/secretaria-general.css');
 
 .spaceTopCustom{
     margin-top: 72px;
