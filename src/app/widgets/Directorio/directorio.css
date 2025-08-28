@@ -20,8 +20,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* margin: 0 auto;
-    max-width:1171.5px ; */
+    border-radius: 16px;
     height: 107px;
     box-shadow: -8px 12px 60px 0px #0000001a;
 }
@@ -76,7 +75,7 @@
     color: #94989a;
     border: none;
     outline: none;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .filter_button:hover {

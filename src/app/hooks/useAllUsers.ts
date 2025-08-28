@@ -45,14 +45,14 @@ export function useGetAllUsers() {
             zona: "Norte",
             phoneNumber: "555-03920404 - Ext. 3302",
             extesion: "3920404 - Ext. 3302",
-            cargo: "Gerente de Ventas",
+            cargo: "Director Ejecutivo de Innovación Estratégica y Transformación Digital Empresarial para el Desarrollo Sostenible de Mercados Emergentes",
             codeOffice: "OFF001",
             office: "Oficina Principal",
             department: "Ventas",
             manager: "CN=fdgdfdfg,CN=Users,DC=lab,DC=local",
             grado: "Senior",
             birthDay: "28/08/1985", // Hoy para prueba
-            hireDay: "23/07/2018",
+            hireDay: "28/08/2018",
             enabled: true
           },
           {
@@ -71,7 +71,7 @@ export function useGetAllUsers() {
             manager: "CN=Administrador,CN=Users,DC=lab,DC=local",
             grado: "Middle",
             birthDay: "28/08/1985",
-            hireDay: "23/07/2019", // Hoy para prueba
+            hireDay: "28/08/2019", // Hoy para prueba
             enabled: true
           },
           {
@@ -83,14 +83,14 @@ export function useGetAllUsers() {
             zona: "Centro",
             phoneNumber: "555-0103",
             extesion: "3920404 - Ext. 3302",
-            cargo: "Analista de Marketing",
+            cargo: "Analista de Marketing y Mercadotecnia",
             codeOffice: "OFF003",
             office: "Oficina Marketing",
             department: "Marketing",
             manager: "Roberto Silva",
             grado: "Junior",
             birthDay: "28/08/1985", // Hoy para prueba
-            hireDay: "23/07/2018",
+            hireDay: "2/08/2018",
             enabled: true
           },
           {
@@ -108,8 +108,8 @@ export function useGetAllUsers() {
             department: "Marketing",
             manager: "CEO",
             grado: "Director",
-            birthDay: "23/07/2018",
-            hireDay: "23/07/2018", // Hoy para prueba
+            birthDay: "2/08/2018",
+            hireDay: "2/08/2018", // Hoy para prueba
             enabled: true
           },
           {
@@ -127,8 +127,8 @@ export function useGetAllUsers() {
             department: "IT",
             manager: "CTO",
             grado: "Senior",
-            birthDay: "23/07/2018", // Hoy para prueba
-            hireDay: "23/07/2018",
+            birthDay: "2/08/2018", // Hoy para prueba
+            hireDay: "28/08/2018",
             enabled: true
           },
           {
@@ -147,7 +147,7 @@ export function useGetAllUsers() {
             manager: "CTO",
             grado: "Senior",
             birthDay: "07/08/2018", // Hoy para prueba
-            hireDay: "23/07/2018",
+            hireDay: "28/08/2018",
             enabled: true
           }
         ];

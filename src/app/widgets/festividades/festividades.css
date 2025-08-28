@@ -24,7 +24,8 @@
 /* Tabs */
 .swiper-festividades {
     width: 100%;
-    max-width: 700px;
+    max-width: fit-content;
+    gap: 48px;
     height: 380px;
     display: flex;
     justify-content: center;
@@ -74,9 +75,9 @@
 }
 
 .linea_festividades_cumpleanios {
-    border: 1px solid #538f61;
     width: 100%;
-    height: 0px;
+    height: 1px;
+    background-color: #CB801B;
 }
 
 .card_festividades_cumpleanios_contenedor {
@@ -113,9 +114,6 @@
     font-family: var(--font-festividades);
 }
 
-.card_festividades_cumpleanios_font_code {
-    font-family: var(--font-Code);
-}
 
 .card_festividades_cumpleanios {
     align-items: center;
@@ -128,10 +126,10 @@
 .card_festividades_cumpleanios_title {
     font-weight: 700;
     font-style: Bold;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 140%;
     letter-spacing: 0%;
-    color: #474747;
+    color: #295135;
     margin: 0 !important;
     white-space: nowrap; /* No permite que el texto se divida en varias líneas */
     text-overflow: ellipsis;
@@ -145,21 +143,19 @@
 }
 
 .card_festividades_cumpleanios_span {
-    text-align: middle;
     font-weight: 700;
-    font-style: Bold;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 140%;
     letter-spacing: 0%;
-    color: #cb801b; /*cambiar por var*/
+    color: #474747; /*cambiar por var*/
     white-space: nowrap; /* No permite que el texto se divida en varias líneas */
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
 .card_festividades_cumpleanios_areas_branch {
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 110.00000000000001%;
     color: #474747;
     margin: 0 !important;

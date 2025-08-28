@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { WidgetContext, htmlAttributes } from '@progress/sitefinity-nextjs-sdk';
 import './directorio.css';
 import { DirectorioEntity } from './directorio.entity';
-import { useGetAllUsers, UserLdap } from '../../hooks/useAllUsers'; // Ajusta la ruta según tu estructura
+import { useGetAllUsers, UserLdap } from '../../hooks/useAllUsers';
 
 // Interfaz para mapear UserLdap a la estructura del directorio
 interface IEmpleados {
@@ -11,7 +11,6 @@ interface IEmpleados {
     title: string;
     extension: string;
     cargo: string;
-    area: string;
     departamento: string;
     zona: string;
     sucursal: string;
@@ -45,16 +44,6 @@ function generateUniqueId(user: UserLdap): string {
     );
 }
 
-// Opcional: Analiza datos para estadísticas y logging
-function analyzeUserData(users: UserLdap[]) {
-    let conNombre = 0;
-    let sinNombre = 0;
-    users.forEach(u => {
-        if (cleanString(u.fullName)) conNombre++;
-        else sinNombre++;
-    });
-}
-
 // Mapea UserLdap[] a IEmpleados[], robusto y sin duplicados
 function mapUserLdapToEmpleados(users: UserLdap[]): IEmpleados[] {
     const empleadosMap: Record<string, IEmpleados> = {};
@@ -82,7 +71,6 @@ function mapUserLdapToEmpleados(users: UserLdap[]): IEmpleados[] {
             title: fullName,
             extension: extension,
             cargo: cleanString(user.cargo),
-            area: cleanString(user.department),
             departamento: cleanString(user.department),
             zona: cleanString(user.zona),
             sucursal: cleanString(user.office),
@@ -107,9 +95,10 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
     const [empleados, setEmpleados] = useState<IEmpleados[]>([]);
     const [buscador, setBuscador] = useState('');
     const [cargoSeleccionado, setCargoSeleccionada] = useState('');
-    const [areaseleccionado, setAreaSeleccionada] = useState('');
+    const [departamentoSeleccionado, setDepartamentoSeleccionado] = useState('');
     const [mostrarSugerencias, setMostrarSugerencias] = useState(false);
     const [resultadoBusqueda, setResultadoBusqueda] = useState<IEmpleados[] | null>(null);
+    const [hasSearched, setHasSearched] = useState(false); // Nuevo estado para controlar si se ha buscado
     // Mostrar paginacion
     const [paginaActual, setPaginaActual] = useState(1);
     const [empleadosFiltradasPaginadas, SetEmpleadosFiltradasPaginadas] = useState<IEmpleados[]>([]);
@@ -118,8 +107,6 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
     // Efecto para cargar y mapear los usuarios cuando se obtienen del hook
     useEffect(() => {
         if (!loading && users.length > 0) {
-            // Opcional: analizar datos
-            analyzeUserData(users);
             const mappedEmpleados = mapUserLdapToEmpleados(users);
             setEmpleados(mappedEmpleados);
         } else if (!loading) {
@@ -127,14 +114,18 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
         }
     }, [users, loading]);
 
+    // Verificar si hay algún filtro activo
+    const hayFiltroActivo = useMemo(() => {
+        return buscador.trim() !== '' || cargoSeleccionado.trim() !== '' || departamentoSeleccionado.trim() !== '';
+    }, [buscador, cargoSeleccionado, departamentoSeleccionado]);
+
     // Filtrar para buscar (ignora campos en blanco en los filtros)
     const handleButtonFilter = () => {
-        const filtrosVacios = buscador.trim() === '' && cargoSeleccionado.trim() === '' && areaseleccionado.trim() === '';
-
-        if (filtrosVacios) {
-            setResultadoBusqueda(null);
+        if (!hayFiltroActivo) {
             return;
         }
+
+        setHasSearched(true);
 
         // Filtrado robusto, ignora campos en blanco
         const filtrados = empleados.filter((item) => {
@@ -142,17 +133,28 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
             const busqueda = buscador.toLowerCase().trim();
             const cargo = item.cargo.toLowerCase().trim();
             const cargoSel = cargoSeleccionado.toLowerCase().trim();
-            const area = item.area.toLowerCase().trim();
-            const areaSel = areaseleccionado.toLowerCase().trim();
+            const departamento = item.departamento.toLowerCase().trim();
+            const departamentoSel = departamentoSeleccionado.toLowerCase().trim();
 
             // Solo filtra si el campo filtro no está vacío
             const nombreCoincide = busqueda ? nombre.includes(busqueda) : true;
             const cargoCoincide = cargoSel ? cargo === cargoSel : true;
-            const areaCoincide = areaSel ? area === areaSel : true;
+            const departamentoCoincide = departamentoSel ? departamento === departamentoSel : true;
 
-            return nombreCoincide && cargoCoincide && areaCoincide;
+            return nombreCoincide && cargoCoincide && departamentoCoincide;
         });
         setResultadoBusqueda(filtrados);
+        setPaginaActual(1); // Reset pagination
+    };
+
+    // Limpiar búsqueda
+    const limpiarBusqueda = () => {
+        setBuscador('');
+        setCargoSeleccionada('');
+        setDepartamentoSeleccionado('');
+        setResultadoBusqueda(null);
+        setHasSearched(false);
+        setPaginaActual(1);
     };
 
     //Nombres Unicos
@@ -180,15 +182,15 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
         return Array.from(cargosUnicos).sort();
     }, [empleados]);
 
-    const areasFiltrados = useMemo(() => {
-        const areasUnicos = new Set();
+    const departamentosFiltrados = useMemo(() => {
+        const departamentosUnicos = new Set();
         empleados.map((item) => {
-            const { area } = item;
-            if (area && area.trim() != '') {
-                areasUnicos.add(area.trim());
+            const { departamento } = item;
+            if (departamento && departamento.trim() != '') {
+                departamentosUnicos.add(departamento.trim());
             }
         });
-        return Array.from(areasUnicos).sort();
+        return Array.from(departamentosUnicos).sort();
     }, [empleados]);
 
     // Efecto del click de las lista de nombre
@@ -205,21 +207,48 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
 
     // Efecto para manejar la paginación cuando empleado
     useEffect(() => {
-        const base = resultadoBusqueda ?? empleados;
+        // Solo mostrar resultados si se ha buscado
+        if (!hasSearched) {
+            SetEmpleadosFiltradasPaginadas([]);
+            return;
+        }
+
+        const base = resultadoBusqueda ?? [];
         const indiceUltimo = paginaActual * empleadosPorPagina;
         const indicePrimero = indiceUltimo - empleadosPorPagina;
         const paginados = base.slice(indicePrimero, indiceUltimo);
 
         SetEmpleadosFiltradasPaginadas(paginados);
-    }, [resultadoBusqueda, empleados, paginaActual, empleadosPorPagina]);
+    }, [resultadoBusqueda, empleados, paginaActual, empleadosPorPagina, hasSearched]);
 
     // Calculo Total de Paginas
-    const base = resultadoBusqueda ?? empleados;
+    const base = hasSearched ? (resultadoBusqueda ?? []) : [];
     const totalPaginas = Math.ceil(base.length / empleadosPorPagina);
 
     //Funciones para gestionar cambios de página
     const cambiarPagina = (numeroPagina: number) => {
         setPaginaActual(numeroPagina);
+    };
+
+    // Función para truncar texto y mostrar tooltip
+    const TruncatedCell = ({ content, maxLines = 2 }: { content: string; maxLines?: number }) => {
+        return (
+            <div
+                className="truncated-cell"
+                title={content}
+                style={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: maxLines,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    lineHeight: '1.4',
+                    maxHeight: `${maxLines * 1.4}em`,
+                }}
+            >
+                {content}
+            </div>
+        );
     };
 
     // Mostrar loading state
@@ -271,7 +300,7 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                                 transform: 'translateY(-50%)',
                                 width: '20px',
                                 height: '20px',
-                                pointerEvents: 'none', // no bloquea clics en input
+                                pointerEvents: 'none',
                             }}
                         />
 
@@ -286,7 +315,7 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                                 setMostrarSugerencias(true);
                             }}
                             style={{
-                                paddingLeft: '40px', // espacio para la imagen
+                                paddingLeft: '40px',
                                 width: '100%',
                                 height: '36px',
                                 boxSizing: 'border-box',
@@ -348,7 +377,6 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                         <option value=''>Buscar</option>
                         {cargosFiltrados.map((cargo, index) => (
                             <option key={index} value={String(cargo)}>
-                                {' '}
                                 {String(cargo)}
                             </option>
                         ))}
@@ -356,109 +384,126 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                 </div>
 
                 <div className='container_filter '>
-                    <label htmlFor='selectArea' className='label_title'>
-                        área
+                    <label htmlFor='selectDepartamento' className='label_title'>
+                        Departamento
                     </label>
 
                     <select
                         className='form-select form-select-sm filter_size'
-                        value={areaseleccionado}
-                        onChange={(e) => setAreaSeleccionada(e.target.value)}
+                        value={departamentoSeleccionado}
+                        onChange={(e) => setDepartamentoSeleccionado(e.target.value)}
                     >
                         <option value=''>Buscar</option>
-
-                        {areasFiltrados.map((areas, index) => (
-                            <option key={index} value={String(areas)}>
-                                {' '}
-                                {String(areas)}
+                        {departamentosFiltrados.map((departamento, index) => (
+                            <option key={index} value={String(departamento)}>
+                                {String(departamento)}
                             </option>
                         ))}
                     </select>
                 </div>
 
-                <button className=' filter_button mt-3' type='button' onClick={() => handleButtonFilter()}>
-                    Buscar
-                </button>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-end' }}>
+                    <button
+                        className={`filter_button mt-3 ${!hayFiltroActivo ? 'filter_button--disabled' : ''}`}
+                        type='button'
+                        onClick={handleButtonFilter}
+                        disabled={!hayFiltroActivo}
+                    >
+                        Buscar
+                    </button>
+                    {/* {hasSearched && (
+                        <button 
+                            className="filter_button filter_button--secondary mt-3"
+                            type='button' 
+                            onClick={limpiarBusqueda}
+                        >
+                            Limpiar
+                        </button>
+                    )} */}
+                </div>
             </div>
 
             <div className='table-responsive'>
                 <table className='table_container mt-5 table-auto border border-primary text-sm w-full'>
                     <thead className='table_header text-white'>
                         <tr>
-                            {/* <th>Id</th> */}
-                            <th style={{ width: '145px' }}>Apellidos y Nombres</th>
-                            <th>Ext.</th>
-                            <th>Cargo</th>
-                            <th>Área</th>
-                            <th>Dpto.</th>
-                            <th>Zona</th>
-                            <th>Sucursal</th>
-                            <th style={{ width: '115px' }}>Jefe Inmediato</th>
+                            <th style={{ width: '180px' }}>Apellidos y Nombres</th>
+                            <th style={{ width: '80px' }}>Ext.</th>
+                            <th style={{ width: '150px' }}>Cargo</th>
+                            <th style={{ width: '120px' }}>Departamento</th>
+                            <th style={{ width: '100px' }}>Zona</th>
+                            <th style={{ width: '120px' }}>Sucursal</th>
+                            <th style={{ width: '150px' }}>Jefe Inmediato</th>
                         </tr>
                     </thead>
                     <tbody className='table_tbody text-gray-800'>
-                        {!empleados.length ? (
+                        {!hasSearched ? (
                             <tr className='hover:bg-gray-100 border-b'>
-                                <td className='px-4 py-2'>No</td>
-                                <td className='px-4 py-2'>Hay</td>
-                                <td className='px-4 py-2'></td>
-                                <td className='px-4 py-2'> Empleados </td>
-                                <td className='px-4 py-2'>Disponibles</td>
-                                <td className='px-4 py-2'>.</td>
-                                <td className='px-4 py-2'>.</td>
-                                <td className='px-4 py-2'>.</td>
+                                <td colSpan={7} className='px-4 py-8 text-center'>
+                                    <div style={{ color: '#538f61', fontSize: '16px' }}>
+
+                                        Utilice los filtros para buscar empleados
+                                    </div>
+                                </td>
                             </tr>
-                        ) : resultadoBusqueda?.length === 0 ? (
+                        ) : empleadosFiltradasPaginadas.length === 0 ? (
                             <tr className='hover:bg-gray-100 border-b'>
-                                <td className='px-4 py-2'></td>
-                                <td className='px-4 py-2'>No</td>
-                                <td className='px-4 py-2'>Se</td>
-                                <td className='px-4 py-2'> encontraron </td>
-                                <td className='px-4 py-2'>Coincidencias</td>
-                                <td className='px-4 py-2'></td>
-                                <td className='px-4 py-2'></td>
-                                <td className='px-4 py-2'></td>
+                                <td colSpan={7} className='px-4 py-8 text-left'>
+                                    <div style={{ display: 'flex', paddingLeft: '8px', paddingRight: '8px' , gap: '8px', flexDirection: 'row', alignItems: 'center', height: '38px', marginTop: "20px", borderRadius: '4px', backgroundColor: '#FFD0001A', color: '#474747', fontSize: '16px' }}>
+                                        <img src="/assets/circle-line-y.svg" alt="icon" />
+                                        No se encontraron colaboradores con los criterios ingresados. Intenta con otra búsqueda
+                                    </div>
+                                </td>
                             </tr>
                         ) : (
                             empleadosFiltradasPaginadas.map((item) => {
                                 return (
                                     <tr key={item.id} className='hover:bg-gray-100 border-b'>
-                                        {/* <td className="px-4 py-2">{item.id}</td> */}
-                                        <td className='px-4 py-2'>{item.title}</td>
-                                        <td className='px-4 py-2'>
-                                            {' '}
-                                            {item.extension?.match(/Ext\.?\s*(\d+)/)?.[1] ?? ''}
+                                        <td className='px-4 py-2' style={{ width: '180px' }}>
+                                            <TruncatedCell content={item.title} />
                                         </td>
-                                        <td className='px-4 py-2'>{item.cargo}</td>
-                                        <td className='px-4 py-2'>{item.area}</td>
-                                        <td className='px-4 py-2'>{item.departamento}</td>
-                                        <td className='px-4 py-2'>{item.zona}</td>
-                                        <td className='px-4 py-2'>{item.sucursal}</td>
-                                        <td className='px-4 py-2'>
-                                            {item.jefeInmediato.match(/CN=([^,]+)/)?.[1] || 'No disponible'}
+                                        <td className='px-4 py-2' style={{ width: '80px' }}>
+                                            <TruncatedCell content={item.extension?.match(/Ext\.?\s*(\d+)/)?.[1] ?? ''} />
+                                        </td>
+                                        <td className='px-4 py-2' style={{ width: '150px' }}>
+                                            <TruncatedCell content={item.cargo} />
+                                        </td>
+                                        <td className='px-4 py-2' style={{ width: '120px' }}>
+                                            <TruncatedCell content={item.departamento} />
+                                        </td>
+                                        <td className='px-4 py-2' style={{ width: '100px' }}>
+                                            <TruncatedCell content={item.zona} />
+                                        </td>
+                                        <td className='px-4 py-2' style={{ width: '120px' }}>
+                                            <TruncatedCell content={item.sucursal} />
+                                        </td>
+                                        <td className='px-4 py-2' style={{ width: '150px' }}>
+                                            <TruncatedCell content={item.jefeInmediato.match(/CN=([^,]+)/)?.[1] || 'No disponible'} />
                                         </td>
                                     </tr>
                                 );
                             })
                         )}
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colSpan={9} className='p-5'>
-                                <div className='flex justify-center items-center mt-6 gap-2'>
-                                    {[...Array(totalPaginas)].map((_, index) => (
-                                        <button
-                                            key={index}
-                                            className={`px-3 py-1 rounded ${paginaActual === index + 1 ? 'card_point--active text-white' : 'bg-gray-200'}`}
-                                            onClick={() => cambiarPagina(index + 1)}
-                                        >
-                                            {index + 1}
-                                        </button>
-                                    ))}
-                                </div>
-                            </td>
-                        </tr>
-                    </tfoot>
+                    {hasSearched && empleadosFiltradasPaginadas.length > 0 && totalPaginas > 1 && (
+                        <tfoot>
+                            <tr>
+                                <td colSpan={7} className='p-5'>
+                                    <div className='flex justify-center items-center mt-6 gap-2'>
+                                        {[...Array(totalPaginas)].map((_, index) => (
+                                            <button
+                                                key={index}
+                                                className={`px-3 py-1 rounded ${paginaActual === index + 1 ? 'card_point--active text-white' : 'bg-gray-200'}`}
+                                                onClick={() => cambiarPagina(index + 1)}
+                                            >
+                                                {index + 1}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    )}
                 </table>
             </div>
         </div>

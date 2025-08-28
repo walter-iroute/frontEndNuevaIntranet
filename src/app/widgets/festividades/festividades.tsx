@@ -38,7 +38,7 @@ export function FestividadesWidget(props: WidgetContext<FestividadesWidgetEntity
 
     // Usar el hook personalizado en lugar del entity
     const { users, loading, error } = useGetAllUsers();
-    
+
 
     const dataAttributes = htmlAttributes(props);
     const infinte = props.model?.Properties?.Infinite;
@@ -302,9 +302,26 @@ export function FestividadesWidget(props: WidgetContext<FestividadesWidgetEntity
                         </span>
                     </div>
                     <div className='linea_festividades_cumpleanios'></div>
-                    <p className={'card_festividades_cumpleanios_areas_branch card_festividades_cumpleanios_font'}>
-                        {item.cargo}
-                    </p>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: '60px'
+                    }}>
+                        <p style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                            lineHeight: 1.2,  // Cambiado de '1' a 1 (número es más estándar)
+                            flex: 1,        // Cambiado de '1' a 1 
+                            margin: 0       // Agregado para eliminar márgenes por defecto del <p>
+                        }}
+                            title={item.cargo}
+                            className={'card_festividades_cumpleanios_areas_branch card_festividades_cumpleanios_font'}>
+                            {item.cargo}
+                        </p>
+                    </div>
+                    <div className='linea_festividades_cumpleanios'></div>
                     <p className={'card_festividades_cumpleanios_areas_branch card_festividades_cumpleanios_font'}>
                         {item.zona}
                     </p>
@@ -351,10 +368,10 @@ export function FestividadesWidget(props: WidgetContext<FestividadesWidgetEntity
                     spaceBetween={20}
                     slidesPerView={3}
                     centeredSlides={shouldCenterSlides}
-                    autoplay={{
-                        delay: 2000,
-                        disableOnInteraction: false,
-                    }}
+                    // autoplay={{
+                    //     delay: 2000,
+                    //     disableOnInteraction: false,
+                    // }}
                     freeMode={true}
                     pagination={{ clickable: true }}
                     loop={infinte}

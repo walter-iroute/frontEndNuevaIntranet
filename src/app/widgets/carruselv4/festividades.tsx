@@ -15,7 +15,7 @@ import { GenericoWidgetEntity } from './festividades.entity';
 import React from 'react';
 import moment from 'moment';
 import 'moment/locale/es';
-import {sanitizerHTML} from "../../utils/Sanitizer";
+import { sanitizerHTML } from "../../utils/Sanitizer";
 
 export function GenericoWidget(props: WidgetContext<GenericoWidgetEntity>) {
     const [items, setItems] = useState<any[]>([]);
@@ -64,10 +64,35 @@ export function GenericoWidget(props: WidgetContext<GenericoWidgetEntity>) {
         fetchItems();
     }, [icono]);
 
-    const shouldCenterSlides = items.length <= 3;
+    // Componente reutilizable para renderizar una tarjeta
+    const CardItem = ({ item }: { item: any }) => {
+        const hasImage = Array.isArray(item.Img) && item.Img.length > 0;
+        const imageUrl = hasImage ? item.Img[0].Url : '/assets/checker.png';
+        const imageAlt = hasImage ? item.Img[0].AlternativeText || 'Image' : 'Image';
+        const imageTitle = hasImage ? item.Img[0].Title || 'Image' : 'Image';
 
+        return (
+            <div className='card-container'>
+                <div className='empty-card'>
+                    <img src={imageUrl} title={imageTitle} alt={imageAlt} />
+                    <h3>{item.Title}</h3>
+                    <p title={item.Content} className="contenido-card">
+                        {sanitizerHTML(item.Content)}
+                    </p>
+                    {item.Redirect && (
+                        <a href={getHrefFromString(item.Redirect)} className='url-redirecion'>
+                            {item.BadgeText ? item.BadgeText : 'Conoce más'}
+                        </a>
+                    )}
+                </div>
+            </div>
+        );
+    };
+
+    const shouldCenterSlides = items.length <= 3;
     const prevRef = useRef(null);
     const nextRef = useRef(null);
+
     return (
         <div
             style={{ height: '350px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
@@ -75,7 +100,6 @@ export function GenericoWidget(props: WidgetContext<GenericoWidgetEntity>) {
         >
             {items.length > 3 ? (
                 <div style={{ position: 'relative', padding: '0 60px' }}>
-                    {/* Padding para los botones */}
                     <Swiper
                         spaceBetween={10}
                         slidesPerView={3}
@@ -89,74 +113,33 @@ export function GenericoWidget(props: WidgetContext<GenericoWidgetEntity>) {
                             nextEl: nextRef.current,
                         }}
                     >
-                        {items.map((item, index) => {
-                            const hasImage = Array.isArray(item.Img) && item.Img.length > 0;
-                            const imageUrl = hasImage ? item.Img[0].Url : '/assets/checker.png';
-                            const imageAlt = hasImage ? item.Img[0].AlternativeText || 'Image' : 'Image';
-                            const imageTitle = hasImage ? item.Img[0].Title || 'Image' : 'Image';
-
-                            return (
-                                <SwiperSlide key={index}>
-                                    <div className='card-container'>
-                                        <div className='empty-card' key={item.Id}>
-                                            <img src={imageUrl}  title={imageTitle} alt={imageAlt}  />
-
-                                            <h3>{item.Title}</h3>
-
-                            
-                                            <p  title={item.Content} className="contenido-card">{sanitizerHTML(item.Content)} </p>
-
-                                            {item.Redirect && (
-                                                <a href={getHrefFromString(item.Redirect)} className='url-redirecion'>
-                                                    {item.BadgeText ? item.BadgeText : 'Conoce más'}
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                            );
-                        })}
+                        {items.map((item, index) => (
+                            <SwiperSlide key={item.Id || index}>
+                                <CardItem item={item} />
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
-                    {/* Botones de navegación personalizados */}
-
+                    
                     {navegacion && (
                         <>
                             <button
                                 ref={prevRef}
                                 className='arrow2 arrow2--prev1'
                                 aria-label='Elemento anterior'
-                            ></button>
+                            />
                             <button
                                 ref={nextRef}
                                 className='arrow2 arrow2--next1'
                                 aria-label='Elemento siguiente'
-                            ></button>
+                            />
                         </>
                     )}
                 </div>
             ) : (
                 <div className='swiper-wrapper-custom'>
-                    {items.map((item,index) => {
-                        const hasImage = Array.isArray(item.Img) && item.Img.length > 0;
-                        const imageUrl = hasImage ? item.Img[0].Url : '/assets/checker.png';
-                        const imageAlt = hasImage ? item.Img[0].AlternativeText || 'Image' : 'Image';
-                        const imageTitle = hasImage ? item.Img[0].Title || 'Image' : 'Image';
-
-                        return (
-                            <div className='card-container'>
-                                <div className='empty-card' key={item.Id}>
-                                    <img src={imageUrl}  title={imageTitle} alt={imageAlt} />
-
-                                    <h3>{item.Title}</h3>
-                                    <p  title={item.Content} className="contenido-card">{sanitizerHTML(item.Content)} </p>
-                                    
-                                    <a href={getHrefFromString(item.Redirect)} className='url-redirecion'>
-                                        {item.BadgeText ? item.BadgeText : 'Conoce más'}
-                                    </a>
-                                </div>
-                            </div>
-                        );
-                    })}
+                    {items.map((item, index) => (
+                        <CardItem key={item.Id || index} item={item} />
+                    ))}
                 </div>
             )}
         </div>
