@@ -51,7 +51,7 @@ export function useGetAllUsers() {
             department: "Ventas",
             manager: "CN=fdgdfdfg,CN=Users,DC=lab,DC=local",
             grado: "Senior",
-            birthDay: "30/07/1985", // Hoy para prueba
+            birthDay: "28/08/1985", // Hoy para prueba
             hireDay: "23/07/2018",
             enabled: true
           },
@@ -70,7 +70,7 @@ export function useGetAllUsers() {
             department: "IT",
             manager: "CN=Administrador,CN=Users,DC=lab,DC=local",
             grado: "Middle",
-            birthDay: "31/07/2018",
+            birthDay: "28/08/1985",
             hireDay: "23/07/2019", // Hoy para prueba
             enabled: true
           },
@@ -89,7 +89,7 @@ export function useGetAllUsers() {
             department: "Marketing",
             manager: "Roberto Silva",
             grado: "Junior",
-            birthDay: "23/07/1992", // Hoy para prueba
+            birthDay: "28/08/1985", // Hoy para prueba
             hireDay: "23/07/2018",
             enabled: true
           },
