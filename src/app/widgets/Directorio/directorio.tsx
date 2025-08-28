@@ -5,6 +5,10 @@ import './directorio.css';
 import { DirectorioEntity } from './directorio.entity';
 import { useGetAllUsers, UserLdap } from '../../hooks/useAllUsers'; // Ajusta la ruta según tu estructura
 
+import {Source_Code_Pro} from 'next/font/google'
+
+const sourceCodePro = Source_Code_Pro({   subsets: ['latin'],weight: ['400'], style:['normal'] });
+
 // Interfaz para mapear UserLdap a la estructura del directorio
 interface IEmpleados {
     id: string;
@@ -104,6 +108,8 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
     // Usar el hook personalizado en lugar del entity
     const { users, loading, error } = useGetAllUsers();
 
+    //Estado BTN Search Activo/Inactivo
+    const [isActiveSearch, setIsActiveSearch] = useState(false);
     const [empleados, setEmpleados] = useState<IEmpleados[]>([]);
     const [buscador, setBuscador] = useState('');
     const [cargoSeleccionado, setCargoSeleccionada] = useState('');
@@ -151,6 +157,7 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
             const areaCoincide = areaSel ? area === areaSel : true;
 
             return nombreCoincide && cargoCoincide && areaCoincide;
+
         });
         setResultadoBusqueda(filtrados);
     };
@@ -212,6 +219,13 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
 
         SetEmpleadosFiltradasPaginadas(paginados);
     }, [resultadoBusqueda, empleados, paginaActual, empleadosPorPagina]);
+
+    // Efecto para activar/desactivar el botón de búsqueda
+useEffect(() => {
+    const hayFiltros = buscador.trim() !== '' || cargoSeleccionado.trim() !== '' || areaseleccionado.trim() !== '';
+    setIsActiveSearch(hayFiltros);
+}, [buscador, cargoSeleccionado, areaseleccionado]);
+
 
     // Calculo Total de Paginas
     const base = resultadoBusqueda ?? empleados;
@@ -278,7 +292,7 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                         {/* Input con padding a la izquierda */}
                         <input
                             type='text'
-                            placeholder='Buscar...'
+                            placeholder='Buscar'
                             className='filter_input'
                             value={buscador}
                             onChange={(e) => {
@@ -345,7 +359,7 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                         value={cargoSeleccionado}
                         onChange={(e) => setCargoSeleccionada(e.target.value)}
                     >
-                        <option value=''>Buscar</option>
+                        <option value='' className={`color-text-Directorio ${sourceCodePro.className}`}>Buscar</option>
                         {cargosFiltrados.map((cargo, index) => (
                             <option key={index} value={String(cargo)}>
                                 {' '}
@@ -365,7 +379,7 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                         value={areaseleccionado}
                         onChange={(e) => setAreaSeleccionada(e.target.value)}
                     >
-                        <option value=''>Buscar</option>
+                        <option value=''  className={`color-text-Directorio ${sourceCodePro.className}`}>Buscar</option>
 
                         {areasFiltrados.map((areas, index) => (
                             <option key={index} value={String(areas)}>
@@ -375,10 +389,13 @@ export function Directorio(props: WidgetContext<DirectorioEntity>) {
                         ))}
                     </select>
                 </div>
-
-                <button className=' filter_button mt-3' type='button' onClick={() => handleButtonFilter()}>
-                    Buscar
-                </button>
+                {/* Modificaciones que realize 27/08/2025 */}
+                <button 
+                className={`filter_button mt-3 ${sourceCodePro.className}  ${isActiveSearch ? '' : 'disabled'}`} 
+                type='button' 
+                disabled={!isActiveSearch}
+                onClick={() => handleButtonFilter()}
+                >Buscar</button>
             </div>
 
             <div className='table-responsive'>
