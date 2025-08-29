@@ -37,11 +37,11 @@
 
 .contenido-card {
     width: 254px;
-    font-size: 16px;
-    min-height: calc(1.4em * 3); /* Altura aproximada para 5 líneas */
+    font-size: 14px;
+    min-height: calc(1.4em * 4); /* Altura aproximada para 5 líneas */
     text-align: center;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

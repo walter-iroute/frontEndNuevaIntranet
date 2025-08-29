@@ -1,0 +1,83 @@
+
+/* Estilos bajo la clase principal card-generico-content para evitar conflictos */
+
+
+.card-generico-content-items {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 2.5rem 0;
+}
+
+.card-generico-content-row {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    width: fit-content;
+}
+
+.card-generico-content .empty-card-hhrr {
+    gap: 24px;
+    width: 300px;
+    min-height: 250px;
+    background-color: #F6F6F6; /* Color de fondo para que se vea la tarjeta vacía */
+    margin: 0 auto !important;
+    flex-direction: column;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 24px 24px 20px 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.card-generico-content .empty-card-hhrr h3 {
+    margin: 0 !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 3.2em; /* Aproximadamente 2 líneas */
+    font-weight: bold;
+    text-align: left;
+    font-family: var(--font-source-sans-pro);
+    font-size: 20px;
+    color: var(--color-gris-oscuro);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+.card-generico-content .empty-card-hhrr p,
+.card-generico-content .empty-card-hhrr div[style*="-webkit-line-clamp"] {
+    margin: 0 !important;
+    font-weight: 400;
+    text-align: left;
+    font-family: var(--font-source-sans-pro);
+    font-size: 15px;
+    color: #767676;
+    white-space: pre-line;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+.card-generico-content .empty-card-hhrr img {
+    margin: 0.25rem;
+    height: 64px;
+    width: 64px; /* Esto mantiene la proporción de la imagen */
+    object-fit: contain; /* Ajusta la imagen sin deformarla */
+}
+
+/* Contenedor de las tarjetas dentro del carrusel */
+.card-generico-content .card-container-hhrr {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: transparent!important; /* Asegura que el fondo no afecte el diseño */
+    width: fit-content;
+    box-sizing: border-box;
+}
+

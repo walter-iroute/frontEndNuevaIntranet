@@ -42,7 +42,7 @@ export function ButtonWidget(props: WidgetContext<ButtonWidgetEntity>) {
                 const buttonElement = document.querySelector('.directorio_contenedor_right') as HTMLElement;
                 if (buttonElement) {
                   
-                    buttonElement.style.bottom = '60px'; // Cambia este valor según tus necesidades
+                    buttonElement.style.bottom = '20px'; // Cambia este valor según tus necesidades
                 }
             }
         }

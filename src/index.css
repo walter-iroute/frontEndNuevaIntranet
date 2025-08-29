@@ -775,9 +775,12 @@ html {
 
 .login {
     width: 444.39px !important;
-    height:592.11px; 
-    transform:translate(100px,21px);
-    display:flex;
+    height: 592.11px; 
+    position: absolute;
+    top: 50%;
+    right: 100px; /* Lo pega al borde derecho */
+    transform: translateY(-50%); /* Solo centra verticalmente */
+    display: flex;
     justify-content: center;
     align-items: center;
 }

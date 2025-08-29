@@ -45,25 +45,25 @@ export function GenericoWidgetHHRR(props: WidgetContext<GenericoWidgetEntityHHRR
 
     return (
         <div
+            className="card-generico"
             style={{ height: '246px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap:'1rem' }}
             {...dataAttributes}
         >
-                {items.map((item, index) => {
-                    const hasImage = Array.isArray(item.Img) && item.Img.length > 0;
-                    const imageUrl = hasImage ? item.Img[0].Url : '/assets/checker.png';
-                    const imageAlt = hasImage ? item.Img[0].AlternativeText || 'Image' : 'Image';
-                    const imageTitle = hasImage ? item.Img[0].Title || 'Image' : 'Image';
+            {items.map((item, index) => {
+                const hasImage = Array.isArray(item.Img) && item.Img.length > 0;
+                const imageUrl = hasImage ? item.Img[0].Url : '/assets/checker.png';
+                const imageAlt = hasImage ? item.Img[0].AlternativeText || 'Image' : 'Image';
+                const imageTitle = hasImage ? item.Img[0].Title || 'Image' : 'Image';
 
-                    return (
-                        <div className='card-container-hhrr ' key={item.Id}>
-                            <div className='empty-card-hhrr'>
-                                <img src={imageUrl}  title={imageTitle} alt={imageAlt} />
-
-                                <h3>{item.Title}</h3>
-                            </div>
+                return (
+                    <div className='card-container-hhrr' key={item.Id}>
+                        <div className='empty-card-hhrr'>
+                            <img src={imageUrl}  title={imageTitle} alt={imageAlt} />
+                            <h3>{item.Title}</h3>
                         </div>
-                    );
-                })}
+                    </div>
+                );
+            })}
         </div>
     );
 }

@@ -16,6 +16,8 @@ import { GenericoWidget } from './widgets/carruselv4/festividades';
 import { GenericoWidgetEntity } from './widgets/carruselv4/festividades.entity';
 import { GenericoWidgetHHRR } from './widgets/cards-HHRR/festividades';
 import { GenericoWidgetEntityHHRR } from './widgets/cards-HHRR/festividades.entity';
+import { GenericoWidgetContent } from './widgets/cards-generico-content/festividades';
+import { GenericoWidgetEntityContent } from './widgets/cards-generico-content/festividades.entity';
 import { Accordion } from './widgets/accordion/accordion';
 import { AccordionEntity } from './widgets/accordion/accordion.entity';
 import { VideoWidget } from './widgets/video/video';
@@ -214,6 +216,14 @@ const customWidgetRegistry: WidgetRegistry = {
             ssr: false, // whether this is a server rendered or client rendered component
             editorMetadata: {
                 Title: 'Generico-Cards',
+            },
+        },
+        Generico_Juridico: {
+            componentType: GenericoWidgetContent,
+            entity: GenericoWidgetEntityContent,
+            ssr: false, // whether this is a server rendered or client rendered component
+            editorMetadata: {
+                Title: 'Generico-Cards-Content',
             },
         },
         Accordion: {

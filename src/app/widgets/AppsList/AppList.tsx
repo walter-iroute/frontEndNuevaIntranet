@@ -99,7 +99,7 @@ export function AppsListWidget(props: WidgetContext<AppListEntity>) {
                     gridTemplateColumns: 'repeat(2, 1fr)', // Dos columnas
                     gridTemplateRows: 'repeat(3, 1fr)', // Tres filas
                     whiteSpace: 'normal',
-                    gap: '1rem',
+                    gap: '36px',
                     placeItems: 'center',
                 }}
             >

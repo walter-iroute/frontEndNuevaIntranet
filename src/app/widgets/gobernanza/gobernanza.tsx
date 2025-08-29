@@ -129,9 +129,7 @@ export function GobernanzaWidget(props: WidgetContext<GobernanzaWidgetEntity>) {
                     shouldShowSlider
                         ? {
                               height: 'auto',
-                              minHeight: '381.83px',
-                              maxHeight: 'calc(3 * 381.83px + 2 * 73.06px)',
-                              gridTemplateRows: 'repeat(auto-fit, 381.83px)',
+                              gridTemplateRows: 'repeat(auto-fit, auto-fit)',
                           }
                         : {}
                 }
